@@ -1,4 +1,4 @@
-Data Pipeline Project - Scraping Reddit r/new
+## Data Pipeline Project - Scraping Reddit r/new
 
 Goals:
 - Scrape reddit/r/new posts programatically, simulating "streaming" data ingestion
