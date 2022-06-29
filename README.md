@@ -1,5 +1,27 @@
 ## Data Pipeline Project - Scraping Reddit r/new
 
+```mermaid
+graph TD
+    subgraph Docker Compose
+    subgraph Webscraper container
+    C --> |Data quality statistics|D[(SQLite Logs)]
+    B{Scraper} --> |get data as json|C[Pandas]
+    C --> |Save post content|E[CSV]
+    Z[Pytest] --> |run tests|B
+    end
+    subgraph Pyspark Container
+    E[CSV] --> |read in csv over 1 gb|F[Pyspark]
+    F[Pyspark] --> |check csv size|E[CSV]
+    F --> G[Text Parsing]
+    end
+    F --> P
+    subgraph Postgres Container
+    P[(Postgres)]
+    end
+    end
+    
+```
+
 Goals:
 - Scrape reddit/r/new posts programatically, simulating "streaming" data ingestion
 - Parse scraped nested json data
