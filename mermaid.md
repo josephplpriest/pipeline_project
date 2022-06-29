@@ -1,3 +1,4 @@
+```mermaid
 graph TD
     subgraph Docker Compose
     subgraph Webscraper container
@@ -16,3 +17,5 @@ graph TD
     P[(Postgres)]
     end
     end
+    
+```
