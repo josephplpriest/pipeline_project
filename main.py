@@ -7,7 +7,7 @@ from sqlite3 import Error
 import pandas as pd
 from src import scraper, post_parser, clean_df
 
-POST_REQUEST_NUMBER = 5
+POST_REQUEST_NUMBER = 100
 
 
 def main():
@@ -42,7 +42,7 @@ def main():
 
         cleaned_df = clean_df.cleaner(df, cols_to_keep=cols_to_keep)
 
-        cleaned_df.to_csv("response.csv", index=False, header=True, sep="|")
+        cleaned_df.to_csv("response.csv", index=False, header=True, sep="|", mode="a")
 
 
         #Track metrics for each iterations
@@ -77,11 +77,12 @@ def main():
 
         stats = pd.DataFrame(out_dict)
 
-        print(stats)
+        print(stats.T)
+
         stats.to_sql(con=conn, name="logging_stats", if_exists="append")
         
         
-        time.sleep(5)
+        time.sleep(2)
 
 
     conn.close()
