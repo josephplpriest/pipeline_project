@@ -1,0 +1,1 @@
+SELECT COUNT(1) FROM logging_stats GROUP BY @col_name

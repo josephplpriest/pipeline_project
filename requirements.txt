@@ -4,3 +4,4 @@ requests==2.27.1
 psycopg2==2.8.6
 pytest==7.1.1
 sqlalchemy==1.4.32
+yaml

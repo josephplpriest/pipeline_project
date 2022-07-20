@@ -1,0 +1,3 @@
+n_posts: 100
+n_iterations: 10
+log_file: "scraper.log"

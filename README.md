@@ -34,3 +34,13 @@ Goals:
 - Insert cleaned data into Postgres
 - Dockerize the project
 - Use containerized streamlit for a dashboard/displaying outputs
+
+
+How to Run:
+
+1. Clone the Repository
+2. Run the docker commands:
+
+`docker build --tag scraper .`
+
+`docker run scraper:latest`
