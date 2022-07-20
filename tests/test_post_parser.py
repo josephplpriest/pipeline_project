@@ -5,7 +5,7 @@ import pytest
 import pandas as pd
 
 
-sys.path.append('../pipeline_project')
+sys.path.append('../app')
 
 from src import post_parser
 

@@ -2,8 +2,6 @@ import sqlite3
 import pprint
 import pandas as pd
 
-
-
 conn = sqlite3.connect("scraping_stats.db")
 
 cur = conn.cursor()

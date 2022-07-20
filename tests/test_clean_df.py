@@ -3,7 +3,7 @@ import sys
 import pandas as pd
 import pytest
 
-sys.path.append('../pipeline_project')
+sys.path.append('../app')
 
 from src import clean_df
 @pytest.fixture(name="df")

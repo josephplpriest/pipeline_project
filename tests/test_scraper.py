@@ -1,6 +1,6 @@
 import sys
 import pytest
-sys.path.append('../pipeline_project')
+sys.path.append('../app')
 
 from src import scraper
 

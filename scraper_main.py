@@ -76,8 +76,8 @@ def main():
         out_dict = {k:[v] for k,v in output}
 
         stats = pd.DataFrame(out_dict)
-
-        print(stats.T)
+        print(stats.head(1), flush=True)
+        
 
         stats.to_sql(con=conn, name="logging_stats", if_exists="append")
         
