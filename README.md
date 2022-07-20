@@ -43,4 +43,4 @@ How to Run:
 
 `docker build --tag scraper .`
 
-`docker run scraper:latest`
+`docker run -it scraper:latest`

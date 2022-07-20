@@ -103,7 +103,7 @@ def main():
         
         logging.debug("Writing to SQLite")
 
-        stats.to_sql(con=conn, name="logging_stats", if_exists="append")
+        stats.to_sql(con=conn, name=config["log_table"], if_exists="append")
         
         
         time.sleep(4)

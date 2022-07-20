@@ -1,3 +1,4 @@
 n_posts: 100
-n_iterations: 10
+n_iterations: 50
 log_file: "scraper.log"
+log_table: "logging_stats"
