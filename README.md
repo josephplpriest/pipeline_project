@@ -39,8 +39,32 @@ Goals:
 How to Run:
 
 1. Clone the Repository
-2. Run the docker commands:
+
+2. Run the docker commands in the root directory:
 
 `docker build --tag scraper .`
 
 `docker run -it scraper:latest`
+
+3. After it finishes running, to remove the container:
+
+`docker kill <container_name>`
+
+^^ this will kill the container process
+
+`docker ps`
+
+(if you've forgotten the container name)
+
+`docker container prune` 	
+
+^^ remove the container
+
+`docker rmi -f <image_name>`
+
+`docker images`
+
+(if you've forgotten the container name)
+
+^^ remove the image, IMPORTANT as it will likely be 1+GB as it includes the full python distro + packages
+
