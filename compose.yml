@@ -1,0 +1,20 @@
+services:
+  scraper:
+    build: .
+    configs: 
+      - app_config
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: "root"
+      POSTGRES_PASSWORD: "root"
+      POSTGRES_DB: "reddit_posts"
+  streamlit:
+    image: python:3.10
+
+configs:
+  app_config:
+    file: ./config.yml
+
+volumes:
+  shared_vol:
