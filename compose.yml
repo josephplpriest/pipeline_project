@@ -1,20 +1,16 @@
 services:
   scraper:
-    build: .
-    configs: 
-      - app_config
-  postgres:
-    image: postgres:13
-    environment:
-      POSTGRES_USER: "root"
-      POSTGRES_PASSWORD: "root"
-      POSTGRES_DB: "reddit_posts"
+    build: app/.
+    volumes:
+        - /cross_vol:/app/data
   streamlit:
-    image: python:3.10
-
-configs:
-  app_config:
-    file: ./config.yml
-
+    build: streamlit/.
+    depends_on:
+      - scraper
+    volumes:
+      - /cross_vol:/streamlit/data
+    ports: 
+      - 8501:8501
 volumes:
-  shared_vol:
+  cross_vol:
+    external: true

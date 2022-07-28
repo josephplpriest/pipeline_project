@@ -1,8 +1,0 @@
-#number of posts to scrape each iteration (max 100)
-n_posts: 100
-#number of loops (total_posts = n_posts * n_iterations), with a 4 sec sleep each loop
-n_iterations: 20
-#file to save the logs
-log_file: "scraper.log"
-#sqlite table name for the logs
-log_table: "logging_stats"
