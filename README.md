@@ -64,7 +64,7 @@ In the `app/config.yml` file, you can change the sleep time between http request
 
 1. Clone the Repository
 
-2. Run the docker commands in the root directory (which contains the docker compose file):
+2. Run the docker commands in the root directory (which contains the `compose.yml` file):
 
 `docker compose build`
 
