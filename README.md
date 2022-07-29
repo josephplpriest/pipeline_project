@@ -1,4 +1,6 @@
-# Data Pipeline Project - Scraping Reddit r/new
+# Data Pipeline Project - Scraping Reddit Posts
+
+![](images/reddit.png)
 
 ## Overview:
 
