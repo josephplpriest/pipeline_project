@@ -1,5 +1,17 @@
 # Data Pipeline Project - Scraping Reddit r/new
 
+## Overview:
+
+* The goal of this project was to create a nice framework for scraping text data from reddit. 
+
+* It scrapes new posts from Reddit with no preference for topic or subreddit. 
+
+* I wanted to get more familiar with using multiple docker containers and volumes to share data and so the three main pieces of the project are a container for scraping the data (and logging results), a data volume for storage (sqlite/csv), and a container running a Streamlit app to visualize/explore the data a bit.
+
+### Summary:
+
+* I learned there are a number of bots (which are not always obviously named) posting to various subreddits. Some sanctioned (automoderators) and some likely not (spamming crypto-subs, financial advice, other advertising). The most popular subreddits (by number of subscribers) do not exclusively get the most posts, due to the number of (likely) bots mentioned.
+
 ```mermaid
 %%{init: {'theme': 'dark', "flowchart" : { "curve" : "basis" } } }%%
 graph TD
@@ -19,13 +31,6 @@ graph TD
     end
     
 ```
-
-## Overview:
-
-The goal of this project was to create a nice framework for scraping text data from reddit. While the app could be configured to scrape individual subreddits, at the moment it currently scrapes any new posts from Reddit with no preference for topic or subreddit. I wanted to get more familiar with using multiple docker containers and volumes to share data and so the three main pieces of the project are a container for scraping the data (and logging results), a data volume for storage (sqlite/csv), and a container running a Streamlit app to visualize/explore the data a bit.
-
-I learned there are a number of bots (which are not always obviously named) posting to various subreddits. Some sanctioned (automoderators) and some likely not (spamming crypto-subs, financial advice, other advertising). The most popular subreddits (by number of subscribers) do not exclusively get the most posts, largely due to the number of (likely) bots mentioned.
-
 
 ## Project Structure:
 
