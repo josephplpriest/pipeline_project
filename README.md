@@ -12,7 +12,7 @@
 
 ### Summary:
 
-* I learned there are a number of bots (which are not always obviously named) posting to various subreddits. Some sanctioned (automoderators) and some likely not (spamming crypto-subs, financial advice, other advertising). The most popular subreddits (by number of subscribers) do not exclusively get the most posts, due to the number of (likely) bots mentioned.
+* I learned there are a number of bots (which are not always obviously named) posting to various subreddits. Some sanctioned (automoderators) and some likely not (spamming crypto-subs, financial advice, other advertising). The most popular subreddits (by number of subscribers) do not exclusively get the most posts, due to the number of (likely) bots.
 
 ```mermaid
 %%{init: {'theme': 'dark', "flowchart" : { "curve" : "basis" } } }%%
