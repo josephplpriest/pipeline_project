@@ -18,10 +18,12 @@ st.write(f"Last post scraped at {most_recent_post}")
 
 df = df.drop_duplicates(subset=["title", "author"])
 
+st.write(f"{df.shape[0]} unique posts scraped")
+
 st.write(df)
 
-fig = px.bar(df.subreddit.value_counts().head(10))
+fig = px.bar(df.subreddit.value_counts().head(10), title="Most Common Subreddits among Posts")
 st.plotly_chart(fig)
 
-fig = px.bar(df.author.value_counts().head(10))
+fig = px.bar(df.author.value_counts().head(10), title = "Possible Bots/Spammers with repeated posts")
 st.plotly_chart(fig)

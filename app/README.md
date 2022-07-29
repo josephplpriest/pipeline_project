@@ -37,6 +37,10 @@ or
 
 `jupyter-notebook analysis.ipynb`
 
+##### To view the sqlite database of scraping iterations:
+
+`python sql_checker.py`
+
 ### Running with Docker:
 ---
 ##### Build the container:

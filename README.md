@@ -52,14 +52,18 @@ graph TD
 
 `docker compose up`
 
-3. After it finishes running, to remove the container:
+3. To open the streamlit app, open the Network Url output in the terminal in a browser.
+
+4. After it finishes running, to remove the container:
 
 `docker compose down --volumes`
 
-`docker image prune`
+5. After running, to clean up containers/volumes (assuming you don't have others on your system you need to save):
 
-4. To open the streamlit app, open the Network Url output in the terminal in a browser.
+`docker system prune -a`
+
+##### Note: If you refresh the streamlit app with "Ctrl + R", it will update the data to the lastest scraped while the scraper is continuously running.
 
 ## Alternate options to run it:
 
-1. In the `app` directory, there are instructions to run the scraping portion of the app without using **docker compose**. It can be ran either locally (with a virtual env) or as a lone docker container. 
+1. In the `app` directory, there are instructions to run the scraping portion of the app without using **docker compose**. It can be ran either locally (with a virtual env) or as a single docker container. 

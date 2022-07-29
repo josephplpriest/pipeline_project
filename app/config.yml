@@ -3,7 +3,7 @@ n_posts: 100
 #sleep time
 sleep_seconds: 4
 #number of loops (total_posts = n_posts * n_iterations), with a sleep each loop
-n_iterations: 20
+n_iterations: 50
 #file to save the logs
 log_file: "scraper.log"
 #sqlite table name for the logs
