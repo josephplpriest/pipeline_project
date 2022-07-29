@@ -20,6 +20,13 @@ graph TD
     
 ```
 
+## Overview:
+
+The goal of this project was to create a nice framework for scraping text data from reddit. While the app could be configured to scrape individual subreddits, at the moment it currently scrapes any new posts from Reddit with no preference for topic or subreddit. I wanted to get more familiar with using multiple docker containers and volumes to share data and so the three main pieces of the project are a container for scraping the data (and logging results), a data volume for storage (sqlite/csv), and a container running a Streamlit app to visualize/explore the data a bit.
+
+I learned there are a number of bots (which are not always obviously named) posting to various subreddits. Some sanctioned (automoderators) and some likely not (spamming crypto-subs, financial advice, other advertising). The most popular subreddits (by number of subscribers) do not exclusively get the most posts, largely due to the number of (likely) bots mentioned.
+
+
 ## Project Structure:
 
 - Scrape new Reddit posts programatically, simulating "batch" data ingestion
@@ -42,6 +49,10 @@ graph TD
 
 - Use containerized streamlit app for a dashboard/displaying outputs
 
+## Config settings:
+
+In the `app/config.yml` file, you can change the sleep time between http requests (don't make it too small or you'll get banned), the number of posts to get for each request, and the total number iterations/calls to make.
+
 ## How to Run:
 
 1. Clone the Repository
@@ -52,7 +63,9 @@ graph TD
 
 `docker compose up`
 
-3. To open the streamlit app, open the Network Url output in the terminal in a browser.
+![](images/dck_compose.gif)
+
+3. To open the streamlit app, open the Network URL output in the terminal in a browser.
 
 4. After it finishes running, to remove the container:
 
@@ -64,6 +77,8 @@ graph TD
 
 ##### Note: If you refresh the streamlit app with "Ctrl + R", it will update the data to the lastest scraped while the scraper is continuously running.
 
+![](images/st_refresh.gif)
+
 ## Alternate options to run it:
 
-1. In the `app` directory, there are instructions to run the scraping portion of the app without using **docker compose**. It can be ran either locally (with a virtual env) or as a single docker container. 
+In the `app` directory, there are instructions to run the scraping portion of the app without using **docker compose**. It can be ran either locally (with a virtual env) or as a single docker container. 

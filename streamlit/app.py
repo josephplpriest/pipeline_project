@@ -7,6 +7,7 @@ import time
 
 try:
     df = pd.read_csv("data/response.csv", header=0, delimiter="|", engine='python', on_bad_lines="skip")
+    
 except FileNotFoundError:
     time.sleep(5)
     df = pd.read_csv("data/response.csv", header=0, delimiter="|", engine='python', on_bad_lines="skip")
