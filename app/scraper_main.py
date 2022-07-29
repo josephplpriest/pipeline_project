@@ -1,11 +1,8 @@
 import datetime as dt
 from distutils.command.config import config
-import os
 import time
 import logging
-
 import sqlite3
-from sqlite3 import Error
 
 import pandas as pd
 from src import scraper, post_parser, clean_df
@@ -72,11 +69,11 @@ def main():
 
         cleaned_df = clean_df.cleaner(df_raw, cols_to_keep=cols_to_keep)
 
-        cleaned_df["selftext"] = cleaned_df["selftext"].str.replace("\n", " ").str.replace("|", "")
+        cleaned_df["selftext"] = cleaned_df["selftext"].str.replace("\n", " ", regex=False).str.replace("|", "", regex=False)
 
         cleaned_df["created"] = pd.to_datetime(cleaned_df.created, utc=True, unit="s")
 
-        logging.debug(f"Write to CSV at {dt.datetime.now()}")
+        logging.info(f"Write to CSV at {dt.datetime.now()}")
         
         # if first iteration, write header to csv
         hdr = True if i == 0 else False 
@@ -114,9 +111,10 @@ def main():
 
         stats = pd.DataFrame(out_dict)
 
-        print(stats.head(1), flush=True, end="\n"*2)
+        if config["sys_out"] == True:
+            print(stats.head(1), flush=True, end="\n"*2)
         
-        logging.debug(f"Write to SQLite at {dt.datetime.now()}")
+        logging.info(f"Write to SQLite at {dt.datetime.now()}")
 
         stats.to_sql(con=conn, name=config["log_table"], if_exists="append")
         

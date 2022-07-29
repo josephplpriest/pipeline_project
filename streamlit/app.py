@@ -16,7 +16,12 @@ most_recent_post = max(df.created)[:-6]
 
 st.write(f"Last post scraped at {most_recent_post}")
 
+df = df.drop_duplicates(subset=["title", "author"])
+
 st.write(df)
 
 fig = px.bar(df.subreddit.value_counts().head(10))
+st.plotly_chart(fig)
+
+fig = px.bar(df.author.value_counts().head(10))
 st.plotly_chart(fig)

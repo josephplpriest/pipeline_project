@@ -1,15 +1,16 @@
-## Data Pipeline Project - Scraping Reddit r/new
+# Data Pipeline Project - Scraping Reddit r/new
 
 ```mermaid
+%%{init: {'theme': 'dark', "flowchart" : { "curve" : "basis" } } }%%
 graph TD
     subgraph Docker Compose
     subgraph Webscraper container
-    C --> |Data quality statistics|D[(SQLite Logs)]
     B{Scraper} --> |get data as json|C[Pandas]
     Z[Pytest] --> |run tests|B
     end
     subgraph Shared Volume
     C --> |Save post content|E[CSV]
+    C --> |Data quality statistics|D[(SQLite Logs)]
     end
     subgraph Streamlit Container
     P[Streamlit]
@@ -19,43 +20,46 @@ graph TD
     
 ```
 
-Goals:
+## Goals:
+
 - Scrape reddit/r/new posts programatically, simulating "streaming" data ingestion
+
 - Parse scraped nested json data
+
 - Clean excess metadata
+
 - Use pytest for testing
+
 - Track Data Quality Metrics
+
 - Store metrics in SQLite database
+
 - Write chunks of data to a csv
+
 - Clean the CSV data
-- Insert cleaned data into Postgres
+
 - Dockerize the project
+
 - Use containerized streamlit for a dashboard/displaying outputs
 
 
-How to Run:
+## How to Run:
 
 1. Clone the Repository
 
-2. Run the docker commands in the root directory:
+2. Run the docker commands in the root directory (which contains the docker compose file):
 
-`docker build --tag scraper .`
+`docker volume create cross_vol`
 
-`docker run -it scraper:latest`
+`docker compose build`
+
+`docker compose up`
 
 3. After it finishes running, to remove the container:
 
-`docker kill <container_name>`
+`docker compose down --volumes`
 
-^^ this will kill the container process
-
-`docker ps`
-
-(if you've forgotten the container name)
-
-`docker container prune` 	
-
-^^ remove the container
+`docker volume prune`
 
 `docker rmi -f <image_name>`
 
@@ -64,3 +68,4 @@ How to Run:
 (if you've forgotten the container name)
 
 ^^ remove the image, IMPORTANT as it will likely be 1+GB as it includes the full python distro + packages
+
