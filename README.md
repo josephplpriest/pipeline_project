@@ -22,7 +22,7 @@ graph TD
 
 ## Project Structure:
 
-- Scrape reddit/r/new posts programatically, simulating "batch" data ingestion
+- Scrape new Reddit posts programatically, simulating "batch" data ingestion
 
 - Parse scraped nested json data
 
