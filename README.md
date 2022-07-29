@@ -20,9 +20,9 @@ graph TD
     
 ```
 
-## Goals:
+## Project Structure:
 
-- Scrape reddit/r/new posts programatically, simulating "streaming" data ingestion
+- Scrape reddit/r/new posts programatically, simulating "batch" data ingestion
 
 - Parse scraped nested json data
 
@@ -38,18 +38,15 @@ graph TD
 
 - Clean the CSV data
 
-- Dockerize the project
+- Use Docker/Docker Compose for modularity
 
-- Use containerized streamlit for a dashboard/displaying outputs
-
+- Use containerized streamlit app for a dashboard/displaying outputs
 
 ## How to Run:
 
 1. Clone the Repository
 
 2. Run the docker commands in the root directory (which contains the docker compose file):
-
-`docker volume create cross_vol`
 
 `docker compose build`
 
@@ -59,13 +56,10 @@ graph TD
 
 `docker compose down --volumes`
 
-`docker volume prune`
+`docker image prune`
 
-`docker rmi -f <image_name>`
+4. To open the streamlit app, open the Network Url output in the terminal in a browser.
 
-`docker images`
+## Alternate options to run it:
 
-(if you've forgotten the container name)
-
-^^ remove the image, IMPORTANT as it will likely be 1+GB as it includes the full python distro + packages
-
+1. In the `app` directory, there are instructions to run the scraping portion of the app without using **docker compose**. It can be ran either locally (with a virtual env) or as a lone docker container. 

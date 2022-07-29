@@ -31,6 +31,7 @@ or
 `py scraper_main.py`  #on windows
 
 ![](images/scraper.gif)
+(above shown with `sys_out: True` in the config file)
 
 ##### Analysis:
 

@@ -119,7 +119,7 @@ def main():
         stats.to_sql(con=conn, name=config["log_table"], if_exists="append")
         
         
-        time.sleep(4)
+        time.sleep(config["sleep_seconds"])
 
 
     conn.close()
